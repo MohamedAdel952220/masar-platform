@@ -1,0 +1,21 @@
+<!-- @dsCard group="Spacing" viewport="700x160" name="Radius" subtitle="6 → 28px + pill. Default card/input = 14px." -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body{margin:0;background:var(--bg-app);font-family:var(--font-sans);padding:20px 24px;}
+  .row{display:flex;gap:16px;align-items:flex-end;}
+  .col{display:flex;flex-direction:column;gap:8px;align-items:center;}
+  .b{width:72px;height:64px;background:var(--surface-card);border:1.5px solid var(--primary);}
+  .l{font-size:11px;font-family:var(--font-mono);color:var(--text-muted);}
+</style></head>
+<body>
+  <div class="row">
+    <div class="col"><div class="b" style="border-radius:var(--radius-xs)"></div><span class="l">xs · 6</span></div>
+    <div class="col"><div class="b" style="border-radius:var(--radius-sm)"></div><span class="l">sm · 10</span></div>
+    <div class="col"><div class="b" style="border-radius:var(--radius-md)"></div><span class="l">md · 14</span></div>
+    <div class="col"><div class="b" style="border-radius:var(--radius-lg)"></div><span class="l">lg · 20</span></div>
+    <div class="col"><div class="b" style="border-radius:var(--radius-xl)"></div><span class="l">xl · 28</span></div>
+    <div class="col"><div class="b" style="border-radius:var(--radius-pill)"></div><span class="l">pill</span></div>
+  </div>
+</body></html>

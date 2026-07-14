@@ -1,0 +1,106 @@
+/* ============================================================
+   Masar — Color tokens
+   Calm teal for trust + care · warm amber as the single "live"
+   accent · soft paper surfaces (never clinical white).
+   ============================================================ */
+:root {
+  /* ---- Brand: Teal (primary) ---- */
+  --teal-50:  #E7F2EE;
+  --teal-100: #C9E4DC;
+  --teal-200: #9CCFC0;
+  --teal-300: #5FB29C;
+  --teal-400: #2C9079;
+  --teal-500: #14785F;
+  --teal-600: #0F6E56;  /* primary */
+  --teal-700: #0C5644;
+  --teal-800: #0E3A30;
+  --teal-900: #0E2422;  /* deepest — dark surfaces, ink-on-teal */
+
+  /* ---- Brand: Amber (live / happening-now accent) ---- */
+  --amber-50:  #FDF3E0;
+  --amber-100: #FBE4BD;
+  --amber-200: #F8D291;
+  --amber-300: #F4BC5E;
+  --amber-400: #F1AC3F;
+  --amber-500: #EF9F27;  /* accent */
+  --amber-600: #D6850F;
+  --amber-700: #A86610;
+
+  /* ---- Neutrals: warm sand / stone ---- */
+  --neutral-0:   #FFFFFF;
+  --neutral-50:  #FAF8F3;
+  --neutral-100: #F5F3EE;  /* paper — default app background */
+  --neutral-200: #EFEBE2;  /* paper-2 — sunken / striped rows */
+  --neutral-300: #E3E0D6;  /* hairline borders */
+  --neutral-400: #C9C5B8;  /* disabled border, dividers on dark */
+  --neutral-500: #A8A395;  /* placeholder text, muted icons */
+  --neutral-600: #6E6B61;  /* secondary text */
+  --neutral-700: #4A4842;  /* body on paper */
+  --neutral-800: #2E2D29;
+  --neutral-900: #1C1C1A;  /* primary text / ink */
+
+  /* ---- Semantic status ---- */
+  --success-50:  #E6F3EB;
+  --success-500: #2F8F5B;
+  --success-700: #1F6B41;
+  --warning-50:  #FDF3E0;
+  --warning-500: #EF9F27;
+  --warning-700: #A86610;
+  --danger-50:   #FBEAE6;
+  --danger-500:  #D5503A;
+  --danger-700:  #A23425;
+  --info-50:     #E8F0F9;
+  --info-500:    #2D6CB5;
+  --info-700:    #1E4E86;
+
+  /* ---- Role accents (per portal) ---- */
+  --role-parent:     var(--teal-600);
+  --role-teacher:    #6B4FB5;  /* violet */
+  --role-driver:     #2D6CB5;  /* blue */
+  --role-supervisor: #C2622E;  /* terracotta */
+  --role-manager:    var(--teal-900);
+  --role-accountant: #3A7D6E;
+  --role-support:    #B5446B;  /* magenta */
+  --role-admin:      var(--neutral-900);
+
+  /* ---- Child day-path status ---- */
+  --status-done:    var(--teal-600);   /* completed step */
+  --status-live:    var(--amber-500);  /* happening now */
+  --status-pending: var(--neutral-400);/* upcoming step */
+  --attend-present: var(--success-500);
+  --attend-absent:  var(--danger-500);
+  --attend-late:    var(--amber-500);
+  --attend-excused: var(--info-500);
+
+  /* ============ Semantic aliases (use these in UI) ============ */
+  --bg-app:        var(--neutral-100);
+  --bg-sunken:     var(--neutral-200);
+  --surface-card:  var(--neutral-0);
+  --surface-raised:var(--neutral-50);
+  --surface-dark:  var(--teal-900);
+  --surface-brand: var(--teal-600);
+
+  --text-strong:   var(--neutral-900);
+  --text-body:     var(--neutral-700);
+  --text-muted:    var(--neutral-600);
+  --text-subtle:   var(--neutral-500);
+  --text-on-brand: var(--neutral-100);
+  --text-on-dark:  var(--neutral-100);
+  --text-link:     var(--teal-600);
+
+  --border-subtle: var(--neutral-300);
+  --border-strong: var(--neutral-400);
+  --border-brand:  var(--teal-600);
+  --border-focus:  var(--teal-500);
+
+  --accent:        var(--amber-500);
+  --accent-quiet:  var(--amber-100);
+
+  --primary:        var(--teal-600);
+  --primary-hover:  var(--teal-700);
+  --primary-active: var(--teal-800);
+  --primary-quiet:  var(--teal-50);
+
+  --focus-ring:    rgba(20,120,95,.35);
+  --overlay-scrim: rgba(14,36,34,.46);
+}

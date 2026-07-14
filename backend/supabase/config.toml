@@ -1,0 +1,55 @@
+# Masar Supabase project configuration — Epic 1 scope.
+# See https://supabase.com/docs/guides/local-development/cli/config
+
+project_id = "masar-platform"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "tenancy", "identity"]
+extra_search_path = ["public"]
+max_rows = 1000
+
+[db]
+port = 54322
+major_version = 15
+
+[studio]
+enabled = true
+port = 54323
+
+[auth]
+enabled = true
+site_url = "https://app.masar.app"
+additional_redirect_urls = ["http://localhost:3000"]
+jwt_expiry = 3600
+enable_refresh_token_rotation = true
+refresh_token_reuse_interval = 10
+enable_manual_linking = false
+
+[auth.email]
+enable_signup = false          # accounts are provisioned server-side only (§10.3) — no public self-signup
+enable_confirmations = false
+
+[auth.sms]
+enable_signup = false
+enable_confirmations = false
+
+# Phone is the primary login factor for every tenant-side role (§10.1).
+# Provider wiring (Twilio/etc.) happens per-environment via project secrets, not here.
+[auth.sms.twilio]
+enabled = false
+
+[auth.mfa]
+max_enrolled_factors = 10
+
+[auth.mfa.totp]
+enroll_enabled = true
+verify_enabled = true
+
+[realtime]
+enabled = true
+
+[storage]
+enabled = true
+file_size_limit = "20MiB"

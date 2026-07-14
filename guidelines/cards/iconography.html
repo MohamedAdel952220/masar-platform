@@ -1,0 +1,34 @@
+<!-- @dsCard group="Brand" viewport="700x200" name="Iconography · Lucide" subtitle="Rounded 2px stroke. Amber reserved for live/alert only." -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body{margin:0;background:var(--surface-card);font-family:var(--font-sans);padding:20px 24px;color:var(--text-body);}
+  .grid{display:grid;grid-template-columns:repeat(8,1fr);gap:16px 8px;}
+  .i{display:flex;flex-direction:column;align-items:center;gap:7px;}
+  .i svg{width:24px;height:24px;stroke-width:2;color:var(--text-strong);}
+  .i .live{color:var(--amber-600);}
+  .i span{font-size:10px;color:var(--text-subtle);}
+</style>
+<script src="https://unpkg.com/lucide@latest"></script></head>
+<body>
+  <div class="grid">
+    <div class="i"><i data-lucide="house"></i><span>home</span></div>
+    <div class="i"><i data-lucide="bus" class="live"></i><span>bus</span></div>
+    <div class="i"><i data-lucide="graduation-cap"></i><span>class</span></div>
+    <div class="i"><i data-lucide="moon"></i><span>nap</span></div>
+    <div class="i"><i data-lucide="qr-code"></i><span>qr</span></div>
+    <div class="i"><i data-lucide="bell" class="live"></i><span>notify</span></div>
+    <div class="i"><i data-lucide="map-pin"></i><span>track</span></div>
+    <div class="i"><i data-lucide="calendar-check"></i><span>attend</span></div>
+    <div class="i"><i data-lucide="book-open"></i><span>lesson</span></div>
+    <div class="i"><i data-lucide="sparkles"></i><span>ai</span></div>
+    <div class="i"><i data-lucide="heart-handshake"></i><span>care</span></div>
+    <div class="i"><i data-lucide="credit-card"></i><span>pay</span></div>
+    <div class="i"><i data-lucide="message-circle"></i><span>chat</span></div>
+    <div class="i"><i data-lucide="users"></i><span>class</span></div>
+    <div class="i"><i data-lucide="clipboard-list"></i><span>report</span></div>
+    <div class="i"><i data-lucide="smile"></i><span>mood</span></div>
+  </div>
+  <script>lucide.createIcons();</script>
+</body></html>

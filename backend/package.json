@@ -1,0 +1,23 @@
+{
+  "name": "masar-backend",
+  "version": "1.0.0-epic1",
+  "private": true,
+  "description": "Masar platform backend — Epic 1: Foundation & Platform Bootstrap",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json --noEmit false --outDir dist",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint:sql": "node scripts/lint-sql.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "vitest": "^2.1.1",
+    "@types/node": "^20.14.15"
+  }
+}

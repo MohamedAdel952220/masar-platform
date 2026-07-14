@@ -1,0 +1,49 @@
+/* ============================================================
+   Masar — Typography tokens
+   Latin: Plus Jakarta Sans · Arabic: Tajawal · Mono: IBM Plex Mono
+   Set [dir="rtl"] on the root and the Arabic stack takes over.
+   ============================================================ */
+:root {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-arabic: 'Tajawal', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Type scale — 1.2-ish, tuned for dense dashboards + roomy mobile */
+  --text-2xs: 11px;
+  --text-xs:  12px;
+  --text-sm:  13px;
+  --text-base:15px;
+  --text-md:  16px;
+  --text-lg:  18px;
+  --text-xl:  21px;
+  --text-2xl: 25px;
+  --text-3xl: 31px;
+  --text-4xl: 38px;
+  --text-5xl: 46px;
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+  --weight-extra:   800;
+
+  --leading-tight:  1.12;
+  --leading-snug:   1.3;
+  --leading-normal: 1.5;
+  --leading-relaxed:1.65;
+
+  --tracking-tight: -0.02em;
+  --tracking-snug:  -0.01em;
+  --tracking-normal:0;
+  --tracking-wide:  0.04em;
+  --tracking-caps:  0.16em;  /* eyebrows / overlines */
+}
+
+/* Arabic numerals & UI feel native when dir=rtl */
+[dir="rtl"] {
+  --font-sans: var(--font-arabic);
+  --font-display: var(--font-arabic);
+  --tracking-tight: 0;
+  --tracking-snug: 0;
+}

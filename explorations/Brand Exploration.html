@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Exploration — Childcare OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F3EE;
+    --paper-2:#EFEBE2;
+    --ink:#1C1C1A;
+    --ink-soft:#5C5A52;
+    --line:#E3E0D6;
+    --teal:#0F6E56;
+    --teal-deep:#0E2422;
+    --amber:#EF9F27;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Plus Jakarta Sans',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding:64px 0 120px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 40px;}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);font-weight:700;}
+  .h1{font-size:44px;font-weight:800;letter-spacing:-.02em;margin-top:14px;line-height:1.05;}
+  .lede{font-size:17px;line-height:1.6;color:var(--ink-soft);max-width:620px;margin-top:18px;}
+  .sectlabel{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin:80px 0 22px;display:flex;align-items:center;gap:14px;}
+  .sectlabel::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  /* direction card */
+  .dir{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;margin-bottom:34px;box-shadow:0 1px 2px rgba(20,20,18,.03),0 18px 40px -28px rgba(20,20,18,.25);}
+  .dir-light{background:var(--paper);display:flex;align-items:center;justify-content:center;padding:54px 40px;min-height:230px;}
+  .dir-dark{background:var(--teal-deep);display:flex;align-items:center;justify-content:center;padding:54px 40px;min-height:230px;}
+  .dir-meta{grid-column:1 / -1;padding:26px 34px 30px;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:8px 26px;align-items:start;}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);background:rgba(15,110,86,.08);padding:5px 11px;border-radius:999px;}
+  .dir-name{font-size:22px;font-weight:800;letter-spacing:-.01em;}
+  .dir-desc{font-size:14.5px;line-height:1.6;color:var(--ink-soft);grid-column:2;}
+  .dir-head{display:flex;align-items:center;gap:14px;}
+  .ar{font-size:13px;color:var(--ink-soft);font-family:'IBM Plex Sans Arabic',sans-serif;}
+
+  /* logo lockups */
+  .lock{display:flex;align-items:center;gap:18px;}
+  .word{font-weight:800;letter-spacing:-.02em;font-size:46px;line-height:1;}
+  .word.ar{font-family:'Tajawal',sans-serif;font-weight:800;letter-spacing:0;}
+  .on-dark{color:var(--paper);}
+  .on-light{color:var(--ink);}
+
+  /* mark */
+  .mark{flex:none;}
+
+  .pal{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;}
+  .sw{display:flex;flex-direction:column;gap:8px;}
+  .chip{width:84px;height:56px;border-radius:12px;border:1px solid rgba(0,0,0,.06);}
+  .chip-l{font-size:11px;font-weight:600;color:var(--ink-soft);}
+  .chip-h{font-size:11px;color:var(--ink-soft);font-variant-numeric:tabular-nums;opacity:.7;}
+
+  .typerow{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .typecard{border:1px solid var(--line);border-radius:16px;background:#fff;padding:26px 28px;}
+  .typecard .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);font-weight:700;}
+  .specimen{font-size:38px;font-weight:800;letter-spacing:-.02em;margin-top:14px;line-height:1.1;}
+  .specimen.ar{font-family:'Tajawal',sans-serif;direction:rtl;}
+  .typecard .meta{font-size:13px;color:var(--ink-soft);margin-top:14px;line-height:1.5;}
+  .note{font-size:14px;color:var(--ink-soft);line-height:1.6;margin-top:10px;}
+  .statusline{display:flex;align-items:center;gap:0;margin-top:22px;flex-wrap:wrap;}
+  .step{display:flex;align-items:center;gap:10px;}
+  .dot{width:13px;height:13px;border-radius:50%;border:2px solid var(--teal);}
+  .dot.done{background:var(--teal);}
+  .dot.now{background:var(--amber);border-color:var(--amber);box-shadow:0 0 0 5px rgba(239,159,39,.18);}
+  .dot.next{border-color:var(--line);}
+  .seg{width:34px;height:2px;background:var(--teal);opacity:.4;}
+  .seg.future{background:var(--line);opacity:1;}
+  .step .lbl{font-size:12px;color:var(--ink-soft);font-weight:600;}
+  @media(max-width:760px){.dir{grid-template-columns:1fr;}.typerow{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow">Brand exploration · للتقييم</div>
+    <div class="h1">Naming &amp; logo for the<br>childcare operating system</div>
+    <p class="lede">The strongest idea in your uploaded concept is the <strong>progression mark</strong> — small dots that fill as the child moves through the day (At Home → In Bus → Arrived → Classroom → Home). It's literally your status feature, turned into a logo. Below are three name directions built on that one mark. Pick one and we'll build the full bilingual design system around it.</p>
+
+    <!-- The mark, explained -->
+    <div class="sectlabel">The mark — one idea, every name</div>
+    <div style="border:1px solid var(--line);border-radius:18px;background:#fff;padding:30px 34px;">
+      <div style="display:flex;align-items:center;gap:30px;flex-wrap:wrap;">
+        <svg class="mark" width="120" height="44" viewBox="0 0 120 44" fill="none">
+          <line x1="22" y1="22" x2="98" y2="22" stroke="#0F6E56" stroke-width="2" stroke-opacity=".3"/>
+          <circle cx="22" cy="22" r="9" fill="#0F6E56"/>
+          <circle cx="60" cy="22" r="9" fill="#0F6E56"/>
+          <circle cx="98" cy="22" r="11" fill="#EF9F27"/>
+        </svg>
+        <div class="note" style="margin:0;max-width:560px;">Two completed steps in teal, the live step in amber — a child's day rendered as a path. It scales to a single app icon, reads at 16px, and the amber "now" dot becomes a live status indicator throughout the product.</div>
+      </div>
+      <div class="statusline">
+        <div class="step"><span class="dot done"></span><span class="lbl">At Home</span></div>
+        <span class="seg"></span>
+        <div class="step"><span class="dot done"></span><span class="lbl">In Bus</span></div>
+        <span class="seg"></span>
+        <div class="step"><span class="dot now"></span><span class="lbl">In Classroom</span></div>
+        <span class="seg future"></span>
+        <div class="step"><span class="dot next"></span><span class="lbl">Nap Time</span></div>
+        <span class="seg future"></span>
+        <div class="step"><span class="dot next"></span><span class="lbl">Home</span></div>
+      </div>
+    </div>
+
+    <!-- Directions -->
+    <div class="sectlabel">Three name directions</div>
+
+    <!-- Masar -->
+    <div class="dir">
+      <div class="dir-light">
+        <div class="lock">
+          <svg class="mark" width="86" height="34" viewBox="0 0 120 44"><line x1="22" y1="22" x2="98" y2="22" stroke="#0F6E56" stroke-width="2" stroke-opacity=".3"/><circle cx="22" cy="22" r="9" fill="#0F6E56"/><circle cx="60" cy="22" r="9" fill="#0F6E56"/><circle cx="98" cy="22" r="11" fill="#EF9F27"/></svg>
+          <span class="word on-light">Masar</span>
+        </div>
+      </div>
+      <div class="dir-dark">
+        <div class="lock" style="flex-direction:row-reverse;">
+          <svg class="mark" width="86" height="34" viewBox="0 0 120 44"><line x1="22" y1="22" x2="98" y2="22" stroke="#F5F3EE" stroke-width="2" stroke-opacity=".3"/><circle cx="22" cy="22" r="9" fill="#F5F3EE"/><circle cx="60" cy="22" r="9" fill="#F5F3EE"/><circle cx="98" cy="22" r="11" fill="#EF9F27"/></svg>
+          <span class="word ar on-dark">مَسار</span>
+        </div>
+      </div>
+      <div class="dir-meta">
+        <div class="dir-head"><span class="dir-name">Masar</span><span class="badge">Recommended</span></div>
+        <p class="dir-desc"><strong>مسار</strong> means <em>path / track / route</em> in Arabic — and reads cleanly in English. It ties together every core idea at once: the child's daily path, the bus route, and the learning journey. Native-Arabic first, effortlessly bilingual, and it makes the progression mark feel inevitable rather than decorative.</p>
+      </div>
+    </div>
+
+    <!-- Daypath -->
+    <div class="dir">
+      <div class="dir-light">
+        <div class="lock">
+          <svg class="mark" width="86" height="34" viewBox="0 0 120 44"><line x1="22" y1="22" x2="98" y2="22" stroke="#0F6E56" stroke-width="2" stroke-opacity=".3"/><circle cx="22" cy="22" r="9" fill="#0F6E56"/><circle cx="60" cy="22" r="9" fill="#0F6E56"/><circle cx="98" cy="22" r="11" fill="#EF9F27"/></svg>
+          <span class="word on-light">daypath</span>
+        </div>
+      </div>
+      <div class="dir-dark">
+        <div class="lock" style="flex-direction:row-reverse;">
+          <svg class="mark" width="86" height="34" viewBox="0 0 120 44"><line x1="22" y1="22" x2="98" y2="22" stroke="#F5F3EE" stroke-width="2" stroke-opacity=".3"/><circle cx="22" cy="22" r="9" fill="#F5F3EE"/><circle cx="60" cy="22" r="9" fill="#F5F3EE"/><circle cx="98" cy="22" r="11" fill="#EF9F27"/></svg>
+          <span class="word ar on-dark">دايباث</span>
+        </div>
+      </div>
+      <div class="dir-meta">
+        <div class="dir-head"><span class="dir-name">daypath</span><span class="badge" style="color:var(--ink-soft);background:rgba(0,0,0,.05);">Your concept</span></div>
+        <p class="dir-desc">Your uploaded direction, refined. English-led and descriptive — "the path of the day." Clear to international/investor audiences. The trade-off: the Arabic "دايباث" is a transliteration with no native meaning, so it reads as a foreign brand name in the Arabic market.</p>
+      </div>
+    </div>
+
+    <!-- Nurtura -->
+    <div class="dir">
+      <div class="dir-light">
+        <div class="lock">
+          <svg class="mark" width="86" height="34" viewBox="0 0 120 44"><line x1="22" y1="22" x2="98" y2="22" stroke="#0F6E56" stroke-width="2" stroke-opacity=".3"/><circle cx="22" cy="22" r="9" fill="#0F6E56"/><circle cx="60" cy="22" r="9" fill="#0F6E56"/><circle cx="98" cy="22" r="11" fill="#EF9F27"/></svg>
+          <span class="word on-light">Nurtura</span>
+        </div>
+      </div>
+      <div class="dir-dark">
+        <div class="lock" style="flex-direction:row-reverse;">
+          <svg class="mark" width="86" height="34" viewBox="0 0 120 44"><line x1="22" y1="22" x2="98" y2="22" stroke="#F5F3EE" stroke-width="2" stroke-opacity=".3"/><circle cx="22" cy="22" r="9" fill="#F5F3EE"/><circle cx="60" cy="22" r="9" fill="#F5F3EE"/><circle cx="98" cy="22" r="11" fill="#EF9F27"/></svg>
+          <span class="word ar on-dark">نُرتُرا</span>
+        </div>
+      </div>
+      <div class="dir-meta">
+        <div class="dir-head"><span class="dir-name">Nurtura</span><span class="badge" style="color:var(--ink-soft);background:rgba(0,0,0,.05);">Original idea</span></div>
+        <p class="dir-desc">Warm and care-led, from "nurture." Soft and parent-friendly. The trade-off: it leans emotional rather than operational, says less about the day-tracking system underneath, and the meaning doesn't carry natively into Arabic.</p>
+      </div>
+    </div>
+
+    <!-- Palette -->
+    <div class="sectlabel">Working palette (from your concept)</div>
+    <div class="pal">
+      <div class="sw"><div class="chip" style="background:#0F6E56;"></div><div class="chip-l">Teal — Trust</div><div class="chip-h">#0F6E56</div></div>
+      <div class="sw"><div class="chip" style="background:#0E2422;"></div><div class="chip-l">Deep — Ink</div><div class="chip-h">#0E2422</div></div>
+      <div class="sw"><div class="chip" style="background:#EF9F27;"></div><div class="chip-l">Amber — Live</div><div class="chip-h">#EF9F27</div></div>
+      <div class="sw"><div class="chip" style="background:#F5F3EE;"></div><div class="chip-l">Paper</div><div class="chip-h">#F5F3EE</div></div>
+      <div class="sw"><div class="chip" style="background:#1C1C1A;"></div><div class="chip-l">Text</div><div class="chip-h">#1C1C1A</div></div>
+    </div>
+    <p class="note">Calm teal for trust and care, warm amber as the single "live / happening now" accent, on a soft paper background rather than clinical white. I'd expand this into a full tonal scale plus parent / teacher / driver role accents in the next phase.</p>
+
+    <!-- Type -->
+    <div class="sectlabel">Bilingual type direction</div>
+    <div class="typerow">
+      <div class="typecard">
+        <div class="k">Latin · UI &amp; display</div>
+        <div class="specimen">Today's day path</div>
+        <div class="meta">Plus Jakarta Sans — friendly geometric sans, warm without being childish, excellent at small UI sizes.</div>
+      </div>
+      <div class="typecard">
+        <div class="k">عربي · واجهة وعناوين</div>
+        <div class="specimen ar">مسار يوم طفلك</div>
+        <div class="meta">Tajawal — حروف عربية حديثة ودافئة، تتناغم بصريًا مع اللاتيني وتعمل في كل المقاسات.</div>
+      </div>
+    </div>
+    <p class="note">Final pairing locked in the next phase — I'll test it across parent, teacher, and dashboard surfaces in both LTR and RTL before committing.</p>
+
+    <div class="sectlabel">Your call</div>
+    <p class="lede" style="margin-top:0;">Tell me which name to run with — <strong>Masar</strong> (my recommendation), <strong>daypath</strong>, or <strong>Nurtura</strong> — or mix and match (e.g. keep a name but change the palette). Once you pick, I'll build the complete bilingual design system: full color scales, type, icons, components, and the three portals.</p>
+  </div>
+</body>
+</html>
