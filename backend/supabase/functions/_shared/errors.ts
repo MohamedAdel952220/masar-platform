@@ -16,6 +16,18 @@ export type ErrorCode =
   | 'STATE_ACCOUNT_NOT_SUSPENDED'
   | 'EXTERNAL_AUTH_ADMIN_FAILURE'
   | 'EXTERNAL_NOTIFICATION_DISPATCH_FAILURE'
+  // Epic 6 addition — §25.1's own taxonomy table names these two exact
+  // codes as illustrative EXTERNAL_* examples; this is the first Epic that
+  // actually needs the payment-gateway one. Purely additive.
+  | 'EXTERNAL_PAYMENT_GATEWAY_TIMEOUT'
+  | 'EXTERNAL_PAYMENT_GATEWAY_FAILURE'
+  // Epic 7 addition — same illustrative EXTERNAL_* pattern §25.1 already
+  // names; this is the first Epic that needs the media-relay one. Purely
+  // additive.
+  | 'EXTERNAL_MEDIA_RELAY_FAILURE'
+  // Epic 8 addition — §19/§25.1's own named "EXTERNAL_AI_QUOTA_EXCEEDED"
+  // error, the first Epic that needs it. Purely additive.
+  | 'EXTERNAL_AI_QUOTA_EXCEEDED'
   | 'CONFLICT_IDEMPOTENCY_KEY_REUSED'
   | 'NOT_FOUND';
 
@@ -33,6 +45,10 @@ const STATUS_BY_CODE: Record<ErrorCode, number> = {
   STATE_ACCOUNT_NOT_SUSPENDED: 409,
   EXTERNAL_AUTH_ADMIN_FAILURE: 502,
   EXTERNAL_NOTIFICATION_DISPATCH_FAILURE: 502,
+  EXTERNAL_PAYMENT_GATEWAY_TIMEOUT: 504,
+  EXTERNAL_PAYMENT_GATEWAY_FAILURE: 502,
+  EXTERNAL_MEDIA_RELAY_FAILURE: 502,
+  EXTERNAL_AI_QUOTA_EXCEEDED: 429,
   CONFLICT_IDEMPOTENCY_KEY_REUSED: 409,
   NOT_FOUND: 404,
 };

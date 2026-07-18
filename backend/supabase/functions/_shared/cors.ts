@@ -14,7 +14,9 @@ export function corsHeaders(origin: string | null): Record<string, string> {
 
   return {
     'Access-Control-Allow-Origin': allowOrigin,
-    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-idempotency-key',
+    // x-service-account-key: Epic 7's machine-identity auth header (§10.7)
+    // — camera-heartbeat's API-key callers never carry an Authorization JWT.
+    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-idempotency-key, x-service-account-key',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     Vary: 'Origin',
   };

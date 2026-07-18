@@ -1,0 +1,23 @@
+-- ============================================================================
+-- Epic 5 — Approvals & Events
+-- Migration 6: Realtime publication
+-- Ref: BACKEND_ARCHITECTURE.md §15, §21; BACKEND_EXECUTION_PLAN.md Epic 5 §9-10
+--
+-- No new storage bucket and no new storage policy. Epic 2's
+-- academic-attachments bucket (migration 20260715000008) already grants
+-- exactly what this Epic needs: write to manager/teacher (a teacher
+-- attaching an exam paper to a request via submit_request's
+-- p_attachment_object_id), and tenant-wide read (a manager previewing that
+-- attachment before deciding, per Acceptance Criteria: "An exam-paper
+-- attachment previews correctly for the reviewing Manager without exposing
+-- the raw storage path" — §22.4 serves both image and PDF attachments via
+-- a signed URL directly, no server-side rendering, so no new Edge Function
+-- or RPC is needed either). Mirrors the precedent already set twice
+-- (Epic 3 reusing Epic 1's identity-documents bucket, confirmed correct
+-- as-is; Epic 3 migration 7's own header note) of an Epic reusing a bucket
+-- built ahead of time by an earlier one, per BACKEND_EXECUTION_PLAN.md
+-- Epic 5 §9's own note: "academic-attachments (now actually used — exam
+-- paper uploads)".
+-- ---------------------------------------------------------------------------
+
+alter publication supabase_realtime add table approvals.requests;

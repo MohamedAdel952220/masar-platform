@@ -17,6 +17,19 @@ export type ErrorCode =
   | 'STATE_ACCOUNT_NOT_SUSPENDED'
   | 'EXTERNAL_AUTH_ADMIN_FAILURE'
   | 'EXTERNAL_NOTIFICATION_DISPATCH_FAILURE'
+  // Epic 6 addition — §25.1's own taxonomy table names these two exact
+  // codes ("EXTERNAL_PAYMENT_GATEWAY_TIMEOUT, EXTERNAL_AI_PROVIDER_UNAVAILABLE"
+  // as illustrative EXTERNAL_* examples); this is the first Epic that
+  // actually needs the payment-gateway one. Purely additive — no existing
+  // code was removed or renamed.
+  | 'EXTERNAL_PAYMENT_GATEWAY_TIMEOUT'
+  | 'EXTERNAL_PAYMENT_GATEWAY_FAILURE'
+  // Epic 7 addition — first Epic needing the media-relay code. Purely
+  // additive.
+  | 'EXTERNAL_MEDIA_RELAY_FAILURE'
+  // Epic 8 addition — §19/§25.1's own named "EXTERNAL_AI_QUOTA_EXCEEDED"
+  // error, the first Epic that needs it. Purely additive.
+  | 'EXTERNAL_AI_QUOTA_EXCEEDED'
   | 'CONFLICT_IDEMPOTENCY_KEY_REUSED'
   | 'NOT_FOUND';
 

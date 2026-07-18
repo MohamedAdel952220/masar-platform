@@ -1,0 +1,22 @@
+-- ============================================================================
+-- Epic 7 — Media & Camera Architecture
+-- Migration 5: Realtime publication
+-- Ref: BACKEND_ARCHITECTURE.md §15, §17; BACKEND_EXECUTION_PLAN.md Epic 7 §10
+--
+-- tenant:{id}:cameras (§15): cameras UPDATE — heartbeat-driven online
+-- changes and manager-driven admin_disabled changes, both carried on the
+-- same channel/table (the Dashboard UI distinguishes the two causes by
+-- which column changed in the payload, per §15's own note — no separate
+-- Postgres publication is needed for that distinction).
+--
+-- camera_classroom_links is NOT added to the publication — §15's matrix
+-- entry for this channel names only `cameras` (UPDATE), not the link table;
+-- classroom linkage changes are comparatively rare, manager-driven CRUD
+-- actions that don't need live propagation the way online/offline state
+-- does.
+--
+-- No new storage bucket (§9: "None — video is out of Supabase Storage scope
+-- per §17").
+-- ============================================================================
+
+alter publication supabase_realtime add table media.cameras;

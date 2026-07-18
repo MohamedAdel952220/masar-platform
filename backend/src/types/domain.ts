@@ -6,11 +6,14 @@ import type {
   PlanCatalogRow,
   StaffProfileRow,
   PlatformAdminRow,
+  ServiceAccountRow,
   TenantStatus,
   PlanCode,
   StaffRole,
   EmploymentStatus,
   PlatformAdminTier,
+  ServiceAccountPurpose,
+  ServiceAccountStatus,
 } from './database.types.js';
 
 export interface Tenant {
@@ -102,6 +105,42 @@ export interface PlatformAdmin {
 
 export function platformAdminFromRow(row: PlatformAdminRow): PlatformAdmin {
   return { id: row.id, name: row.name, email: row.email, tier: row.role };
+}
+
+// Epic 7 addition — identity.service_accounts' row type has existed since
+// Epic 1 (schema only, "first rows in Epic 7" per that migration's own
+// comment); this is the first Epic to actually need its domain-layer
+// mapper. api_key_hash is deliberately NOT part of this domain type or its
+// mapper — no repository method needs to read it back (the raw key is
+// generated, hashed, and returned exactly once by issue-service-account-key
+// alone, §10.7), so there is no path through this type by which even a
+// hash could reach a client response.
+export interface ServiceAccount {
+  id: string;
+  tenantId: string | null;
+  name: string;
+  purpose: ServiceAccountPurpose;
+  scopes: string[];
+  status: ServiceAccountStatus;
+  issuedBy: string | null;
+  issuedAt: string;
+  revokedAt: string | null;
+  lastUsedAt: string | null;
+}
+
+export function serviceAccountFromRow(row: Omit<ServiceAccountRow, 'api_key_hash'>): ServiceAccount {
+  return {
+    id: row.id,
+    tenantId: row.tenant_id,
+    name: row.name,
+    purpose: row.purpose,
+    scopes: row.scopes,
+    status: row.status,
+    issuedBy: row.issued_by,
+    issuedAt: row.issued_at,
+    revokedAt: row.revoked_at,
+    lastUsedAt: row.last_used_at,
+  };
 }
 
 export interface CallerContext {

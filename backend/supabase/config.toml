@@ -6,7 +6,7 @@ project_id = "masar-platform"
 [api]
 enabled = true
 port = 54321
-schemas = ["public", "tenancy", "identity"]
+schemas = ["public", "tenancy", "identity", "academic", "transport", "safety", "comms", "approvals", "billing", "media", "reports", "platform", "jobs"]
 extra_search_path = ["public"]
 max_rows = 1000
 
@@ -53,3 +53,33 @@ enabled = true
 [storage]
 enabled = true
 file_size_limit = "20MiB"
+
+# Storage Vector Buckets (S3-backed pgvector storage) are available on the
+# Supabase Pro plan only; this project (masar-staging) is on the free plan.
+# This project's config.toml never had a [storage.vector] section, and the
+# current CLI's config schema defaults storage.vector.enabled to true when
+# the section is entirely omitted — that implicit default is what caused
+# the previous `supabase config push` to be rejected. No Epic 1-8 feature
+# uses Storage vector buckets, so explicitly disabling it here changes no
+# project behavior; it only removes the accidental, unused, paid-only
+# default that was blocking the push.
+[storage.vector]
+enabled = false
+
+# Epic 6: payment-webhook is called by the PSP itself, which never carries a
+# Supabase user JWT — §20 names it explicitly as "a public endpoint with
+# signature verification" (verifyWebhookSignature, _shared/paymentGateway.ts),
+# not a Supabase-auth-verified one. Every other Edge Function in this
+# project keeps the platform default (JWT required) — this is the one
+# deliberate, documented exception.
+[functions.payment-webhook]
+verify_jwt = false
+
+# Epic 7: camera-heartbeat is called by an on-prem camera relay agent
+# authenticated as an identity.service_accounts machine identity (§10.7,
+# §13.7) via a static API key — it never carries a Supabase user JWT, since
+# there is no human session behind the call at all. Mirrors payment-webhook's
+# own documented verify_jwt=false exception exactly; every other Epic 7 Edge
+# Function keeps the platform default (JWT required).
+[functions.camera-heartbeat]
+verify_jwt = false
