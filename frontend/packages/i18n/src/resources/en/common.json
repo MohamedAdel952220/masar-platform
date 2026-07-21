@@ -1,0 +1,16 @@
+{
+  "app": { "name": "Masar" },
+  "common": {
+    "loading": "Loading…",
+    "retry": "Try again",
+    "cancel": "Cancel",
+    "save": "Save",
+    "empty": "Nothing to show yet"
+  },
+  "errors": {
+    "generic": "Something went wrong.",
+    "network": "Connection problem. Please try again.",
+    "forbidden": "You do not have access to this.",
+    "notFound": "Not found."
+  }
+}

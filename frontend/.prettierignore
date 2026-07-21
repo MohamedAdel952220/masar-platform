@@ -1,0 +1,11 @@
+node_modules
+dist
+.turbo
+pnpm-lock.yaml
+
+# Design tokens are copied VERBATIM from the original /tokens directory and
+# must stay byte-identical to the design handoff (FRONTEND_ARCHITECTURE.md §9).
+packages/design-system/src/tokens/colors.css
+packages/design-system/src/tokens/fonts.css
+packages/design-system/src/tokens/spacing.css
+packages/design-system/src/tokens/typography.css

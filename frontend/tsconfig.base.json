@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@masar/design-system": ["packages/design-system/src/index.ts"],
+      "@masar/design-system/*": ["packages/design-system/src/*"],
+      "@masar/api-client": ["packages/api-client/src/index.ts"],
+      "@masar/api-client/*": ["packages/api-client/src/*"],
+      "@masar/auth": ["packages/auth/src/index.ts"],
+      "@masar/auth/*": ["packages/auth/src/*"],
+      "@masar/i18n": ["packages/i18n/src/index.ts"],
+      "@masar/i18n/*": ["packages/i18n/src/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

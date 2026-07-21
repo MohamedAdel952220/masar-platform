@@ -1,0 +1,7 @@
+/* Masar design tokens — single import surface.
+   These four files are copied VERBATIM from the original /tokens directory;
+   no value was renamed or altered (FRONTEND_ARCHITECTURE.md §9). */
+@import './colors.css';
+@import './fonts.css';
+@import './spacing.css';
+@import './typography.css';

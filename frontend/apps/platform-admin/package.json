@@ -1,0 +1,32 @@
+{
+  "name": "@masar/app-platform-admin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5178",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "preview": "vite preview --port 5178",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src --ext .ts,.tsx",
+    "clean": "rimraf dist .turbo node_modules"
+  },
+  "dependencies": {
+    "@masar/api-client": "workspace:*",
+    "@masar/auth": "workspace:*",
+    "@masar/design-system": "workspace:*",
+    "@masar/i18n": "workspace:*",
+    "@hookform/resolvers": "3.9.0",
+    "@tanstack/react-query": "5.51.15",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-hook-form": "7.52.1",
+    "react-router-dom": "6.26.0",
+    "zod": "3.23.8",
+    "zustand": "4.5.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.3.1",
+    "vite": "5.4.0"
+  }
+}

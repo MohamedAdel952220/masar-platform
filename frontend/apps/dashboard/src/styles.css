@@ -1,0 +1,30 @@
+/*
+ * Platform Admin portal chrome.
+ *
+ * Design-system tokens only — no new visual language, no overrides of any
+ * component's own styling.
+ *
+ * NOTE: this sets the page background because @masar/design-system's AppShell
+ * references `var(--surface-app)`, which is not a token that exists (the paper
+ * background token is `--bg-app`). The design system is frozen for this phase,
+ * so the correct background is applied here at the portal root instead. See the
+ * Phase 3 completion report.
+ */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-app);
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}

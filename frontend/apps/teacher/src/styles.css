@@ -1,0 +1,37 @@
+/*
+ * Teacher App portal chrome — mobile-first.
+ *
+ * Design-system tokens only; no new visual language and no component overrides.
+ *
+ * NOTE: the page background is set here because @masar/design-system's AppShell
+ * references `var(--surface-app)`, which is not a token that exists (the paper
+ * background is `--bg-app`). The design system is frozen for this phase, so the
+ * correct background is applied at the portal root — the same approach the
+ * Platform Admin and Dashboard portals took. See the completion report.
+ */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-app);
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  /* Comfortable one-handed reading on a phone. */
+  font-size: 16px;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Respect the device safe area under the bottom tab bar. */
+:root {
+  --tabbar-height: 64px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}

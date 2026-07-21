@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+# Masar frontend pre-commit gate.
+# The git root is the repository root, while the frontend workspace lives in
+# ./frontend — so this hook changes into the workspace before running
+# lint-staged (core.hooksPath points here).
+cd "$(dirname "$0")/.." || exit 1
+npx --yes pnpm@8.15.9 exec lint-staged
